@@ -1,0 +1,23 @@
+<header>
+  <h1>LANACESS</h1>
+</header>
+
+<div class="container-video">
+  <img class="video" [src]="video$ | async" />
+
+  <div class="container-buttons">
+    <button (click)="stop$.next(true)">Stop</button>
+    <button (click)="play$.next(true)">Play</button>
+  </div>
+</div>
+
+
+<div class="container-faces">
+  <div class="container-face-item" *ngFor="let item of face$ |async; let i=index;">
+    <img class="face" [src]="item.image" />
+    <div class="face-data">
+      <span class="data-field">id: {{i}}</span>
+      <span class="data-field">time: {{item.time| date:'mm:ss'}}</span>
+    </div>
+  </div>
+</div>
